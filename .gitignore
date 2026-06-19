@@ -50,3 +50,6 @@ test/test-coverage
 
 # Onboarding workspace config - may contain secrets
 scripts/onboarding/config/workspace.json
+
+#workspace config - may contain secrets
+workspace.json
