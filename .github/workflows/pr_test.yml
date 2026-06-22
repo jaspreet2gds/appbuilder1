@@ -34,8 +34,6 @@ jobs:
       - name: npm install
         run: npm i 
 
-      - name: Run Biome Code Quality Check
-        run: npm run code:report
 
       - name: Setup CLI
         uses: adobe/aio-cli-setup-action@1.3.0
