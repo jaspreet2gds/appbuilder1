@@ -28,6 +28,7 @@
   "devDependencies": {
     "@adobe-commerce/commerce-extensibility-tools": "^3.4.0",
     "@biomejs/biome": "2.4.16",
+    "eslint": "^10.5.0",
     "husky": "9.1.7",
     "jest": "30.4.2",
     "lint-staged": "16.4.0",
@@ -37,7 +38,7 @@
   "scripts": {
     "prepare": "husky",
     "postinstall": "npm run build --if-present",
-    "test": "jest --passWithNoTests -c ./test/jest.config.js ./test",
+    "test": "jest --passWithNoTests -c ./test/jest.config.js",
     "onboard": "node --no-warnings -e 'require(\"./scripts/onboarding/index.js\").main()'",
     "onboard:debug": "node --inspect-brk --no-warnings -e 'require(\"./scripts/onboarding/index.js\").main()'",
     "commerce-event-subscribe": "node --no-warnings -e 'require(\"./scripts/commerce-event-subscribe/index.js\").main()'",
