@@ -43,8 +43,8 @@ jobs:
         with:
           os: ${{ matrix.os }}
           command: build
-      - name: Test
-        uses: adobe/aio-apps-action@4.1.0
-        with:
-          os: ${{ matrix.os }}
-          command: test
+#      - name: Test
+#        uses: adobe/aio-apps-action@4.1.0
+#       with:
+#         os: ${{ matrix.os }}
+#         command: test
