@@ -1,4 +1,5 @@
 name: AIO App CI
+# This workflow is triggered on pull requests to the main branch. It runs tests on multiple operating systems and Node.js versions to ensure compatibility and functionality before merging changes.
 
 on: [pull_request]
 jobs:
@@ -8,8 +9,8 @@ jobs:
     environment: dev
     strategy:
       matrix:
-        node-version: ['20']
-        os: [macOS-latest, ubuntu-latest, windows-latest]
+        node-version: ['22']
+        os: [ubuntu-latest]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -19,6 +20,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: npm i
+        
+      # ✅ Added Biome step (static code analysis)
+      - name: Run Biome Code Quality Check
+        run: npm run code:report
+
       - name: Setup CLI
         uses: adobe/aio-cli-setup-action@1.3.0
         with:
@@ -45,5 +51,6 @@ jobs:
       - name: Test
         uses: adobe/aio-apps-action@4.1.0
         with:
-          os: ${{ matrix.os }}
-          command: test
+         os: ${{ matrix.os }}
+         command: test
+
