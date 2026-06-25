@@ -21,7 +21,7 @@ jobs:
       - name: npm install
         run: npm i
         
-      # ✅ Added Biome step (static code analysis)
+      # ✅ Added Biome Code Quality step (static code analysis)
       - name: Run Biome Code Quality Check
         run: npm run code:report
 
