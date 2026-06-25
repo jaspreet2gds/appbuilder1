@@ -19,7 +19,12 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: npm install
-        run: npm ci
+        run: npm i
+        
+      # ✅ Added Biome step (static code analysis)
+      - name: Run Biome Code Quality Check
+        run: npm run code:report
+
       - name: Setup CLI
         uses: adobe/aio-cli-setup-action@1.3.0
         with:
@@ -44,4 +49,8 @@ jobs:
           os: ${{ matrix.os }}
           command: build
       - name: Test
-        run: npm run test
+        uses: adobe/aio-apps-action@4.1.0
+        with:
+         os: ${{ matrix.os }}
+         command: test
+
